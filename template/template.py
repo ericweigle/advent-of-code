@@ -10,13 +10,18 @@ if len(sys.argv) < 2:
   print("Usage: %s [filename]" % sys.argv[0])
   sys.exit(1)
 
+def parse(filename):
+  return [x.strip() for x in open(filename, 'r').readlines()]
+
+def part1(data):
+  pass
+
+def part2(data):
+  pass
 
 for filename in sys.argv[1:]:
-  data = [x.strip() for x in open(filename, 'r').readlines()]
+  print(f"For file '{filename}'")
+  data = parse(filename)
 
-  if len(data) < 100:
-    # example
-    pass
-  else:
-    # real
-    pass
+  part1(copy.deepcopy(data))
+  part2(data)
