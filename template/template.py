@@ -10,6 +10,16 @@ if len(sys.argv) < 2:
   print("Usage: %s [filename]" % sys.argv[0])
   sys.exit(1)
 
+def ints(filename):
+  lines = [x.strip() for x in open(filename, 'r').readlines()]
+  result = []
+  for line in lines:
+    value = re.sub('[^0-9]', ' ', line)
+    result.append([int(x) for x in value.split()])
+  if len(result) == 1:
+    return result[0]
+  return result
+
 def parse(filename):
   return [x.strip() for x in open(filename, 'r').readlines()]
 
