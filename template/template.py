@@ -1,37 +1,31 @@
 #!/usr/bin/python3
 
+import collections
+
 import re
 import sys
 import math
 import pprint
 import copy
+sys.path.insert(1, '/home/eric_weigle_gmail_com/advent-of-code/library/')
+import aoc
 
-if len(sys.argv) < 2:
-  print("Usage: %s [filename]" % sys.argv[0])
-  sys.exit(1)
-
-def ints(filename):
-  lines = [x.strip() for x in open(filename, 'r').readlines()]
-  result = []
-  for line in lines:
-    value = re.sub('[^0-9]', ' ', line)
-    result.append([int(x) for x in value.split()])
-  if len(result) == 1:
-    return result[0]
-  return result
-
-def parse(filename):
-  return [x.strip() for x in open(filename, 'r').readlines()]
 
 def part1(data):
   pass
 
+
 def part2(data):
   pass
 
-for filename in sys.argv[1:]:
-  print(f"For file '{filename}'")
-  data = parse(filename)
+def mymain(filename):
+  data = aoc.lines(filename)
 
-  part1(copy.deepcopy(data))
+  print("Part 1")
+  part1(data)
+
+  print("Part 2")
   part2(data)
+
+aoc.run(mymain)
+
