@@ -1,9 +1,14 @@
 """Board helper library for AOC."""
 
+import os
 import sys 
 
 def lines(filename):
-  return [x.strip() for x in open(filename, 'r').readlines()]
+  if os.path.isfile(filename):
+    return [x.strip() for x in open(filename, 'r').readlines()]
+  else:
+    # actually input
+    return [filename.strip()]
 
 def ints(filename):
   raw = [x.strip() for x in open(filename, 'r').readlines()]
