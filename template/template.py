@@ -2,11 +2,12 @@
 
 import collections
 
+import copy
+import math
+import parse
+import pprint
 import re
 import sys
-import math
-import pprint
-import copy
 sys.path.insert(1, '/home/eric_weigle_gmail_com/advent-of-code/library/')
 sys.path.insert(1, '/home/ehw/projects/advent-of-code/library/')
 import aoc
