@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 
 import collections
-
-import copy
-import math
 import parse
-import pprint
-import re
+
 import sys
 sys.path.insert(1, '/home/eric_weigle_gmail_com/advent-of-code/library/')
 sys.path.insert(1, '/home/ehw/projects/advent-of-code/library/')
@@ -43,8 +39,6 @@ def run(data):
 
 def mymain(filename):
   data = aoc.lines(filename)
-
   run(data)
 
 aoc.run(mymain)
-
