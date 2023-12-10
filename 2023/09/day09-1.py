@@ -1,22 +1,16 @@
 #!/usr/bin/python3
 
+import itertools
 import sys
 sys.path.insert(1, '/home/eric_weigle_gmail_com/advent-of-code/library/')
 sys.path.insert(1, '/home/ehw/projects/advent-of-code/library/')
 import aoc
 
-def all_zeros(l):
-  for x in l:
-    if x != 0:
-      return False
-  return True
-
 def make_history(seq):
   result = []
   result.append(seq)
-  while not all_zeros(result[-1]):
-    x = result[-1]
-    result.append(list([x[i+1]-x[i] for i in range(len(x)-1)]))
+  while any(result[-1]):
+    result.append(list([x[1]-x[0] for x in itertools.pairwise(result[-1])]))
   return result
 
 def unchain_r(history):
