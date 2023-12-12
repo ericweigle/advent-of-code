@@ -11,6 +11,10 @@ import sys
 sys.path.insert(1, '/home/eric_weigle_gmail_com/advent-of-code/library/')
 sys.path.insert(1, '/home/ehw/projects/advent-of-code/library/')
 import aoc
+import png
+
+import render
+
 
 def make_board(data):
   for i in range(len(data)):
@@ -35,7 +39,7 @@ def visit(to_visit, r, c, count):
     to_visit[count] = []
   to_visit[count].append((r,c))
 
-def identify_dirt(board, to_visit):
+def identify_dirt(board, to_visit, drawable):
   while to_visit:
     r, c = to_visit.pop()
     if board[r][c] == '#':
@@ -67,6 +71,8 @@ def identify_dirt(board, to_visit):
       if board[nr][nc] in ('-', 'J', '7') and board[r][c] in ('S', '-', 'L', 'F'):
         to_visit.add((nr,nc))
 
+    drawable.render_char(r, c, board[r][c], color=(255,0,0))
+    drawable.save()
     board[r][c] = '#'
 
   for r in range(len(board)):
@@ -162,27 +168,30 @@ def stretch_horiz(board):
       expanded[r].append(right)
   return expanded
 
-def flood(board, outside, to_visit):
+def flood(board, outside, to_visit, drawable):
   while to_visit:
     r, c = to_visit.pop()
     if (r,c) in outside:
       continue
     outside.add((r,c))
+    drawable.render_char(r//2,c//2, "#", (0,0,255))
+    drawable.save()
+
     for delta in ((-1,0), (1, 0), (0, -1), (0,1)):
       nr = r+delta[0]
       nc = c+delta[1]
       if bounded(board, nr, nc) and board[nr][nc] == '.':
         to_visit.add((nr,nc))
 
-def part2(board, start):
-  copied = copy.deepcopy(board)
-
+def part2(board, start, drawable):
   # Clean up board by separating extraneous pipe from actual loop
-  dirt = identify_dirt(copy.deepcopy(board), set([start]))
+  dirt = identify_dirt(copy.deepcopy(board), set([start]), drawable)
   for r in range(len(dirt)):
     for c in range(len(dirt[r])):
-      if dirt[r][c] == ".":
+      if dirt[r][c] == "." and board[r][c] != '.':
         board[r][c] = '.'
+        drawable.render_char(r, c, '.') # ground always white
+        drawable.save()
 
   board = stretch_vert(board)
   board = stretch_horiz(board)
@@ -193,14 +202,18 @@ def part2(board, start):
     for c in range(len(board[r])):
       if board[r][c] == '.':
         to_visit.add((r,c))
+        drawable.render_char(r//2, c//2, '#', (0,0,255))
+        drawable.save()
   for c in (0, len(board[0])-1):
     for r in range(len(board)):
       if board[r][c] == '.':
         to_visit.add((r,c))
+        drawable.render_char(r//2, c//2, '#', (0,0,255))
+        drawable.save()
 
   # Flood fill from outside to mark all outside points.
   outside = set()
-  flood(board, outside, to_visit)
+  flood(board, outside, to_visit, drawable)
   for r,c in outside:
     board[r][c] = 'O'
   #for row in board:
@@ -211,16 +224,24 @@ def part2(board, start):
   for r in range(0, len(board), 2):
     for c in range(0, len(board[0]), 2):
       if board[r][c] == '.':
+        drawable.render_char(r//2, c//2, '#', (0,255,0))
+        drawable.save()
         inside += 1
   print("Inside:",inside)
 
 def mymain(filename):
   data = aoc.lines(filename)
   board = make_board(data)
+  drawable = render.DrawableBoard(
+      len(board), len(board[0]),
+      "/mnt/sda1/space/viz/board",
+      sampling_interval=10)
+  drawable.render_board(board)
+  drawable.save()
+
   start = replace_start(board)
 
-  print("Part 1")
-  part2(board, start)
+  part2(board, start, drawable)
 
 
 aoc.run(mymain)
