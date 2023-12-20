@@ -1,0 +1,171 @@
+digraph {
+  broadcaster [shape="box" color="green"]
+  bq  [shape="box"]
+  bt  [shape="box"]
+  cb  [shape="box"]
+  dc  [shape="box"]
+  dp  [shape="box"]
+  fh  [shape="diamond"]
+  fl  [shape="box"]
+  fp  [shape="box"]
+  fz  [shape="diamond"]
+  gk  [shape="box"]
+  gr  [shape="box"]
+  gx  [shape="box"]
+  gz  [shape="box"]
+  hb  [shape="box"]
+  hj  [shape="box"]
+  hl  [shape="diamond"]
+  hm  [shape="box"]
+  hq  [shape="box"]
+  hs  [shape="box"]
+  jg  [shape="box"]
+  js  [shape="box"]
+  kb  [shape="box"]
+  kg  [shape="box"]
+  lb  [shape="box"]
+  lr  [shape="diamond"]
+  mf  [shape="diamond"]
+  mq  [shape="box"]
+  nc  [shape="box"]
+  ng  [shape="box"]
+  nj  [shape="box"]
+  nl  [shape="box"]
+  px  [shape="box"]
+  qb  [shape="box"]
+  qk  [shape="box"]
+  qn  [shape="box"]
+  rd  [shape="box"]
+  rm  [shape="box"]
+  sd  [shape="box"]
+  sn  [shape="diamond"]
+  ss  [shape="diamond"]
+  td  [shape="box"]
+  tf  [shape="diamond"]
+  th  [shape="box"]
+  tl  [shape="box"]
+  tm  [shape="box"]
+  tn  [shape="box"]
+  tv  [shape="box"]
+  vf  [shape="box"]
+  vp  [shape="box"]
+  vr  [shape="box"]
+  xb  [shape="box"]
+  xd  [shape="box"]
+  xl  [shape="box"]
+  xv  [shape="box"]
+  xx  [shape="box"]
+  zj  [shape="box"]
+  ql  [shape="diamond"]
+  rx  [shape="box" color="red"]
+
+  fl -> tf
+  fl ->gz
+  xb -> hl
+  xb ->tl
+  mq -> tf
+  mq ->fl
+  px -> hl
+  px ->tm
+  dp -> xv
+  broadcaster -> js
+  broadcaster -> ng
+  broadcaster -> lb
+  broadcaster ->gr
+  gk -> hm
+  vp -> vf
+  vp -> sn
+  fp -> xb
+  lr -> ss
+  lr -> rm
+  lr -> dc
+  lr -> js
+  lr -> gk
+  lr -> dp
+  lr -> bq
+  xl -> gx
+  xl -> lr
+  xx -> hb
+  cb -> jg
+  hl -> nj
+  hl -> lb
+  hl -> tl
+  hl -> xx
+  hl -> hb
+  hl -> fp
+  hl -> mf
+  vr -> tf
+  vr -> hq
+  bq -> gk
+  jg -> qn
+  hb -> qk
+  qk -> hs
+  qk -> hl
+  gz -> tf
+  rm -> hj
+  tf -> cb
+  tf -> jg
+  tf -> fz
+  tf -> gr
+  tf -> zj
+  tf -> qn
+  tf -> kb
+  qn -> td
+  js -> lr
+  js -> dc
+  qb -> nc
+  zj -> vr
+  td -> tf
+  td -> zj
+  tl -> kg
+  gx -> lr
+  hm -> lr
+  hm -> rd
+  nj -> xx
+  hq -> kb
+  hq -> tf
+  kg -> px
+  kg -> hl
+  dc -> dp
+  vf -> th
+  vf -> sn
+  tm -> hl
+  xd -> tn
+  xd -> sn
+  ng -> vp
+  ng -> sn
+  th -> qb
+  rd -> xl
+  rd -> lr
+  bt -> xd
+  bt -> sn
+  tv -> sn
+  nl -> bt
+  hs -> fp
+  hs -> hl
+  xv -> rm
+  xv -> lr
+  tn -> sn
+  tn -> tv
+  hj -> lr
+  hj -> bq
+  sd -> nl
+  sn -> sd
+  sn -> fh
+  sn -> th
+  sn -> qb
+  sn -> nl
+  sn -> ng
+  sn -> nc
+  kb -> mq
+  lb -> nj
+  lb -> hl
+  gr -> tf
+  gr -> cb
+  nc -> sd
+  fh -> ql
+  mf -> ql
+  fz -> ql
+  ss -> ql
+  ql -> rx
+}
