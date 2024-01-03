@@ -7,6 +7,7 @@ def lines(filename):
   if os.path.isfile(filename):
     return [x.strip() for x in open(filename, 'r').readlines()]
   else:
+    print("Warning: treating command line parameter as input.")
     # actually input
     return [filename.strip()]
 
